@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e1e1e, #333333); /* Dark gradient background */
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Wrap elements to multiple lines */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.block {
+    width: 250px; /* Make the blocks wider */
+    height: 120px;
+    background: #333333; /* Dark background color */
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Slightly more prominent shadow */
+}
+
+.block:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.block a {
+    text-decoration: none;
+    color: inherit;
+    position: relative; /* Position relative for pseudo-element */
+}
+
+.block a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.block a:hover::after {
+    background-color: #ffffff; /* Change color on hover */
+}
+
+.emoji {
+    font-size: 32px;
+    margin-right: 10px; /* Add spacing between emoji and title */
+}
+
+.title {
+    font-weight: bold; /* Make the title bold */
+    margin-bottom: 5px; /* Add spacing between title and subtitle */
+}
+
+.subtext {
+    font-size: 14px; /* Adjust font size for subtitle */
+    font-weight: lighter; /* Use a lighter font weight */
+    display: block; /* Display subtitle as block-level element */
+}
+
+.note {
+    text-align: center;
+    font-size: 17px; /* Adjusting the text size */
+    position: fixed; /* Fixing position */
+    bottom: 20px; /* Adjusting position from bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 999; /* Ensuring it's above other content */
+}
+
+.note a {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-decoration: none; /* Remove underline by default */
+    font-weight: bold; /* Make the text bold */
+    color: transparent;
+}
+
+.note a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    text-decoration-color: #ffffff; /* Change the color of the underline to white */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Display blocks vertically on mobile devices */
+    }
+
+    .emoji {
+        margin-right: 0; /* Reset margin for emojis on mobile */
+        margin-bottom: 5px; /* Add spacing between emoji and title */
+    }
+}

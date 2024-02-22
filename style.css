@@ -1,84 +1,69 @@
 body {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1e1e1e, #333333); /* Dark gradient background */
-    font-family: 'Montserrat', sans-serif;
-    color: #ffffff;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
     display: flex;
-    flex-wrap: wrap; /* Wrap elements to multiple lines */
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin-top: 50px;
 }
 
 .block {
-    width: 250px; /* Make the blocks wider */
-    height: 120px;
-    background: #333333; /* Dark background color */
+    background-color: #fff;
     border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center;
-    padding: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Slightly more prominent shadow */
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease;
 }
 
 .block:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+    transform: translateY(-5px);
 }
 
 .block a {
     text-decoration: none;
     color: inherit;
-    position: relative; /* Position relative for pseudo-element */
-}
-
-.block a::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: transparent; /* Initially transparent */
-    transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-.block a:hover::after {
-    background-color: #ffffff; /* Change color on hover */
 }
 
 .emoji {
-    font-size: 32px;
-    margin-right: 10px; /* Add spacing between emoji and title */
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
 }
 
-.title {
-    font-weight: bold; /* Make the title bold */
-    margin-bottom: 5px; /* Add spacing between title and subtitle */
+.text .title {
+    font-size: 20px;
+    font-weight: 700;
 }
 
-.subtext {
-    font-size: 14px; /* Adjust font size for subtitle */
-    font-weight: lighter; /* Use a lighter font weight */
-    display: block; /* Display subtitle as block-level element */
+.text .subtext {
+    font-size: 16px;
+    color: #888;
+    display: block;
+    margin-top: 5px;
 }
 
 .note {
     text-align: center;
-    font-size: 17px; /* Adjusting the text size */
-    position: fixed; /* Fixing position */
-    bottom: 20px; /* Adjusting position from bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-    z-index: 999; /* Ensuring it's above other content */
+    margin-top: 20px;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.note:hover {
+    transform: scale(1.1);
 }
 
 .note a {
@@ -91,18 +76,6 @@ body {
 }
 
 .note a:hover {
-    text-decoration: underline; /* Add underline on hover */
-    text-decoration-color: #ffffff; /* Change the color of the underline to white */
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Display blocks vertically on mobile devices */
-    }
-
-    .emoji {
-        margin-right: 0; /* Reset margin for emojis on mobile */
-        margin-bottom: 5px; /* Add spacing between emoji and title */
-    }
+    text-decoration: underline;
+    color: #b700ff;
 }
